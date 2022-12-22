@@ -1,0 +1,15 @@
+.global-section-cards {
+  display: flex;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+#right-section-cards {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}

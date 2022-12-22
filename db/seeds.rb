@@ -80,9 +80,9 @@ car_bmw.save!
 
 puts "Creating cars..."
 
-red1 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671745611/bmw_ya1kjs.jpg")
-red2 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671745610/bmw3_nszgki.webp")
-red3 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671745610/bmw2_r5dlaa.jpg")
+red1 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746385/red2_hffnda.jpg")
+red2 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746384/red3_ckebw5.jpg")
+red3 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746384/red_ohimap.webp")
 
 red_photos = [
   { io: red1, filename: "car1.jpg", content_type: "image/jpg" },
@@ -128,9 +128,9 @@ car_renault.save!
 
 puts "Creating cars..."
 
-blue1 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746963/renault3_nyqojh.jpg")
-blue2 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746963/renault2_kovj3v.jpg")
-blue3 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746963/renault_jqsxmt.webp")
+blue1 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671747232/blue2_emrwuu.jpg")
+blue2 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671747231/blue3_fixh7b.jpg")
+blue3 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671747231/blue_gaa2uo.jpg")
 
 blue_photos = [
   { io: blue1, filename: "car1.jpg", content_type: "image/jpg" },
@@ -138,7 +138,7 @@ blue_photos = [
   { io: blue3, filename: "car3.jpg", content_type: "image/jpg" }
 ]
 
-car_blue = Car.new(brand: "hyundai", model: "K22", address: "1480 Avenue Patrouille de France 13300 Salon-De-Provence", year_of_production: 2005, price_per_day: 65, user_id: 6)
+car_blue = Car.new(brand: "hyundai", model: "K22", address: "25 Rue des Fileuses de Soie 13300 Salon-De-Provence", year_of_production: 2005, price_per_day: 65, user_id: 6)
 car_blue.photos.attach(blue_photos)
 car_blue.save!
 

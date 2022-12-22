@@ -8,6 +8,10 @@
   <p>Vous louerez cette voiture à <%= @car.user.first_name %> !</p>
 <% end %>
 
+<% @car.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <%= link_to "Revenir vers la liste des voitures", cars_path %>
 
 <div class="booking-form">

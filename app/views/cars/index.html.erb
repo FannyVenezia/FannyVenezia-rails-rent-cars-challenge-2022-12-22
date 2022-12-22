@@ -1,4 +1,18 @@
+<%= form_with url: cars_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query, params[:query],
+      class: "form-control-search",
+      placeholder: "Trouvez une voiture près de chez vous"
+    %>
+    <%= submit_tag "Chercher", class: "btn btn-primary" %>
+  <% end %>
+
 <% @cars.each do |car| %>
   <%= car.brand %>
   <%= link_to "Details", car_path(car) %>
 <% end %>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

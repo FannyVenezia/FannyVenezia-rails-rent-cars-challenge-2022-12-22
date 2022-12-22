@@ -1,10 +1,11 @@
 <%= @car.brand.capitalize %>
 
-  <% @car.bookings.each do |booking| %>
+<% @car.bookings.each do |booking| %>
   <% if booking.user = current_user %>
     <%= booking.starts_at %>
     <%= booking.ends_at %>
   <% end %>
+  <p>Vous louerez cette voiture à <%= @car.user.first_name %> !</p>
 <% end %>
 
 <%= link_to "Revenir vers la liste des voitures", cars_path %>

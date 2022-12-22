@@ -1,8 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :find_car_id, only: %i[new create]
+  before_action :find_car_id, only: %i[create]
 
   def new
-    @booking = Booking.new
   end
 
   def create
@@ -10,7 +9,7 @@ class BookingsController < ApplicationController
     @booking.car = @car
     @booking.user = current_user
     if @booking.save
-      redirect_to car_path(@car), notice: "Your booking was successfully created."
+      redirect_to car_path(@car), notice: "Félicitations, votre réservation a bien été enregistrée !"
     else
       render :new, status: :unprocessable_entity
     end

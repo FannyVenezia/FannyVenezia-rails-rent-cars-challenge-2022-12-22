@@ -1,0 +1,4 @@
+<% @cars.each do |car| %>
+  <%= car.brand %>
+  <%= link_to "Details", car_path(car) %>
+<% end %>

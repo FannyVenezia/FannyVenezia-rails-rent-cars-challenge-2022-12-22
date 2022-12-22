@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsRentCarsChallenge</title>
+    <title>RentMe!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google result text -->
+    <title>RentMe! | Location de voitures entre particuliers</title>
+    <!-- Google result description -->
+    <meta name="description" content="RentMe! est la plateforme de location de voitures entre particuliers la plus performante et la mieux notée du marché.
+    N'attendez plus, venez louer votre première voiture chez nous !">
+
+    <!-- Facebook result -->
+    <meta property="og:title" content="RentMe! | Location de voitures entre particuliers">
+    <meta property="og:image" content="car.jpeg">
+    <meta property="og:description" content="RentMe! est la plateforme de location de voitures entre particuliers la plus performante et la mieux notée du marché.
+    N'attendez plus, venez louer votre première voiture chez nous !">
+    <meta property="og:site_name" content="RentMe!"/>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,7 +25,7 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
+    <%= render "shared/navbar" unless ( controller_name == "pages" && action_name == "home") %>
     <%= render "shared/flashes" %>
 
     <%= yield %>

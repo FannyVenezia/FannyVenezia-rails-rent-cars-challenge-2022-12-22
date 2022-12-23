@@ -15,15 +15,14 @@
           <%= cl_image_tag car.photos.first.key, height: 200, width: 285, crop: :fill %>
           <div class="info-card-car">
             <div>
-              <%= car.brand %>
-              <br>
+              <p><strong><%= car.brand %></strong></p>
               <%= car.model %>
               <br>
               <%= car.year_of_production %>
             </div>
             <div>
               <p class="margin-auto">Prix à la journée</p>
-              <p class="margin-auto"><%= car.price_per_day %> €</p>
+              <p><%= car.price_per_day %> €</p>
               <%= link_to "Voir plus", car_path(car) %>
             </div>
           </div>

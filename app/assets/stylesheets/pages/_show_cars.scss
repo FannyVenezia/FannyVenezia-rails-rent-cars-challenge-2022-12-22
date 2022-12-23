@@ -1,10 +1,80 @@
-.booking-form {
-  width: 400px;
+.booking-section {
+  width: 480px;
+}
+
+body {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("background-image.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  margin-left: 40px;
 }
 
 input[type=submit] {
   color: white;
   background-color: rgb(134, 25, 134);
-  padding: 10px 21px;
+  padding: 10px 22px;
   border-radius: 4px;
+  width: 198px;
+}
+
+.car-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-right: 20px;
+}
+
+.car-fiche-info {
+  background-color: white;
+  border: 1px solid rgba(138, 137, 138, 0.651);
+  padding: 36px 75px;
+  width: 48%;
+  height: 330px;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.body-booking {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.booking-form-card {
+  border: 1px solid rgba(138, 137, 138, 0.651);
+  background-color: white;
+  padding: 30px;
+  width: 500px;
+  height: 330px;
+}
+
+.small-card {
+  height: 224px;
+  margin-bottom: 30px;
+}
+
+.btn-purple-corner {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: rgb(134, 25, 134);
+  padding: 12px 22px;
+  text-decoration: none;
+  width: 312px;
+  text-align: center;
+  border-radius: 6px;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  &:hover {
+    color: rgb(134, 25, 134);
+    background-color: white;
+  }
 }

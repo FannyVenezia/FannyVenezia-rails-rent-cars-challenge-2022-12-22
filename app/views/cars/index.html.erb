@@ -1,29 +1,39 @@
 <div class="global-section-cards">
   <div class="left-section-cards">
-    <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
+    <h4>Trouvez un particulier qui loue sa voiture autour de chez vous</h4>
+    <%= form_with url: cars_path, method: :get, class: "d-flex form-search" do %>
       <%= text_field_tag :query, params[:query],
         class: "form-control-search",
-        placeholder: "Cherchez par marque"
+        placeholder: "Chercher par marque"
       %>
-      <%= submit_tag "Chercher", class: "btn btn-primary" %>
+      <%= submit_tag "Chercher" %>
     <% end %>
 
     <div class="card-grid"  class="col-5 col-lg-8 flex-grow">
       <% @cars.each do |car| %>
-        <div>
+        <div class="card-car">
           <%= cl_image_tag car.photos.first.key, height: 200, width: 285, crop: :fill %>
-          <%= car.brand %>
-          <%= car.model %>
-          <%= car.year_of_production %>
-          <%= car.price_per_day %>
-          <%= link_to "Details", car_path(car) %>
+          <div class="info-card-car">
+            <div>
+              <%= car.brand %>
+              <br>
+              <%= car.model %>
+              <br>
+              <%= car.year_of_production %>
+            </div>
+            <div>
+              <p class="margin-auto">Prix à la journée</p>
+              <p class="margin-auto"><%= car.price_per_day %> €</p>
+              <%= link_to "Voir plus", car_path(car) %>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
   </div>
 
   <div class="col-7 col-lg-4" id="right-section-cards"
-    style="height: 600px"
+    style="height: 600px; margin-top: 178px"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">

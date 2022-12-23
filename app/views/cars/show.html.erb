@@ -1,39 +1,57 @@
-<%= @car.brand.capitalize %>
-
-<% @car.bookings.each do |booking| %>
-  <% if booking.user = current_user %>
-    <%= booking.starts_at %>
-    <%= booking.ends_at %>
-  <% end %>
-  <p>Vous louerez cette voiture à <%= @car.user.first_name %> !</p>
-<% end %>
-<% @car.bookings.each do |booking| %>
-  <% if booking.user = current_user %>
-    <%= booking.starts_at %>
-    <%= booking.ends_at %>
-    <% if booking.accepted == "true" %>
-      <p>Bonne nouvelle, votre réservation a été acceptée par <%= @car.user.first_name %> ! Préparez vos valises pour le <%= booking.starts_at %> !</p>
-    <% else %>
-      <p>Votre réservation est en attente d'acceptation par <%= @car.user.first_name %>...</p>
+<div class="container">
+  <div class="car-photos">
+    <% @car.photos.each do |photo| %>
+      <div class="car-photos-grid">
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      </div>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
 
-<% @car.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+  <div class="body-booking">
+    <div class="car-fiche-info">
+      <p>Marque | <%= @car.brand.capitalize %></p>
+      <p>Modèle | <%= @car.model %></p>
+      <p>Année de mise en circulation | <%= @car.year_of_production %></p>
+      <p>Localisation | <%= @car.address %></p>
+      <p class="margin-auto">Prix à la journée | <%= @car.price_per_day %>€</p>
+    </div>
 
-<%= link_to "Revenir vers la liste des voitures", cars_path %>
+    <div class="booking-card">
+      <div class="booking-section">
+        <div class="booking-form-card">
+          <h4>Tentez la location entre particuliers pour vos prochaines vacances</h4>
+          <% if user_signed_in? %>
+            <p>Réserver cette voiture :</p>
+            <%= simple_form_for [@car, @booking], data: { controller: 'flatpickr' } do |f| %>
+              <%= f.input :starts_at, placeholder: 'Date de départ', label:false, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+              <%= f.input :ends_at, placeholder: 'Date de retour', label:false, as: :string, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+              <%= f.submit "Confirmer les dates" %>
+            <% end %>
+          <% else %>
+            <p>Créez un compte pour pouvoir réserver cette voiture !</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="booking-form">
-  <% if user_signed_in? %>
-    <p>Réserver cette voiture :</p>
-    <%= simple_form_for [@car, @booking], data: { controller: 'flatpickr' } do |f| %>
-      <%= f.input :starts_at, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
-      <%= f.input :ends_at, as: :string, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
-      <%= f.submit "Confirmer les dates" %>
-    <% end %>
-  <% else %>
-    <p>Créez un compte pour pouvoir réserver cette voiture !</p>
-  <% end %>
+  <div class="btn-purple-corner">
+    <%= link_to "Revenir vers la liste des voitures", cars_path %>
+  </div>
+  <div>
+    <% @car.bookings.each do |booking| %>
+      <% if booking.user = current_user %>
+        <div class="booking-form-card small-card">
+          <h4>Récapitulatif de votre réservation</h4>
+          <p>Date de départ | <%= booking.starts_at %></p>
+          <p>Date de retour | <%= booking.ends_at %></p>
+          <% if booking.accepted == "true" %>
+            <p>Bonne nouvelle, votre réservation a été acceptée par <%= @car.user.first_name %> ! Préparez vos valises pour le <%= booking.starts_at %> !</p>
+          <% else %>
+            <p>Votre réservation est en attente d'acceptation par <%= @car.user.first_name %>...</p>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

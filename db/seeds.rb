@@ -4,19 +4,19 @@ Car.destroy_all
 
 puts "Creating cars..."
 
-ford_21 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671745867/ford2_g0suuh.jpg")
-ford_22 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671745867/ford_x23cox.jpg")
-ford_23 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671745866/ford3_sg1vjw.jpg")
+red1 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746385/red2_hffnda.jpg")
+red2 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746384/red3_ckebw5.jpg")
+red3 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746384/red_ohimap.webp")
 
-ford_2_photos = [
-  { io: ford_21, filename: "car1.jpg", content_type: "image/jpg" },
-  { io: ford_22, filename: "car2.jpg", content_type: "image/jpg" },
-  { io: ford_23, filename: "car3.jpg", content_type: "image/jpg" }
+red_photos = [
+  { io: red1, filename: "car1.jpg", content_type: "image/jpg" },
+  { io: red2, filename: "car2.jpg", content_type: "image/jpg" },
+  { io: red3, filename: "car3.jpg", content_type: "image/jpg" }
 ]
 
-car_ford_2 = Car.new(brand: "Ford", model: "Lica", address: "4 Rue des Baumes 13008 Istres", year_of_production: 2021, price_per_day: 105, user_id: 6)
-car_ford_2.photos.attach(ford_2_photos)
-car_ford_2.save!
+car_red = Car.new(brand: "Clio", model: "C3", address: "2 Avenue de la République 13140 Miramas", year_of_production: 2010, price_per_day: 55, user_id: 6)
+car_red.photos.attach(red_photos)
+car_red.save!
 
 puts "Creating cars..."
 
@@ -33,6 +33,38 @@ range_rover_photos = [
 range_rover2 = Car.new(brand: "Range Rover", model: "Beast", address: "26 Avenue Saint-Exupéry 13250 Saint-Chamas", year_of_production: 2020, price_per_day: 70, user_id: 6)
 range_rover2.photos.attach(range_rover_photos)
 range_rover2.save!
+
+puts "Creating cars..."
+
+old1 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746691/old_cqoaxy.jpg")
+old2 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746691/old2_wfxe2f.jpg")
+old3 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746691/old3_xh5vdp.webp")
+
+old_photos = [
+  { io: old1, filename: "car1.jpg", content_type: "image/jpg" },
+  { io: old2, filename: "car2.jpg", content_type: "image/jpg" },
+  { io: old3, filename: "car3.jpg", content_type: "image/jpg" }
+]
+
+car_old = Car.new(brand: "Volkswagen", model: "Loom", address: "100 Rue Henri Coste 13140 Miramas", year_of_production: 1972, price_per_day: 95, user_id: 6)
+car_old.photos.attach(old_photos)
+car_old.save!
+
+puts "Creating cars..."
+
+ford_21 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671745867/ford2_g0suuh.jpg")
+ford_22 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671745867/ford_x23cox.jpg")
+ford_23 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671745866/ford3_sg1vjw.jpg")
+
+ford_2_photos = [
+  { io: ford_21, filename: "car1.jpg", content_type: "image/jpg" },
+  { io: ford_22, filename: "car2.jpg", content_type: "image/jpg" },
+  { io: ford_23, filename: "car3.jpg", content_type: "image/jpg" }
+]
+
+car_ford_2 = Car.new(brand: "Ford", model: "Lica", address: "4 Rue des Baumes 13008 Istres", year_of_production: 2021, price_per_day: 105, user_id: 6)
+car_ford_2.photos.attach(ford_2_photos)
+car_ford_2.save!
 
 porsche1 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671744236/porsche_oe2i7t.jpg")
 porsche2 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671744236/porsche2_kq5cyb.jpg")
@@ -77,38 +109,6 @@ bmw_photos = [
 car_bmw = Car.new(brand: "Bmw", model: "Jag", address: "12 Rue de Provence 13140 Miramas", year_of_production: 2012, price_per_day: 65, user_id: 6)
 car_bmw.photos.attach(bmw_photos)
 car_bmw.save!
-
-puts "Creating cars..."
-
-red1 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746385/red2_hffnda.jpg")
-red2 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746384/red3_ckebw5.jpg")
-red3 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746384/red_ohimap.webp")
-
-red_photos = [
-  { io: red1, filename: "car1.jpg", content_type: "image/jpg" },
-  { io: red2, filename: "car2.jpg", content_type: "image/jpg" },
-  { io: red3, filename: "car3.jpg", content_type: "image/jpg" }
-]
-
-car_red = Car.new(brand: "Clio", model: "C3", address: "2 Avenue de la République 13140 Miramas", year_of_production: 2010, price_per_day: 55, user_id: 6)
-car_red.photos.attach(red_photos)
-car_red.save!
-
-puts "Creating cars..."
-
-old1 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746691/old_cqoaxy.jpg")
-old2 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746691/old2_wfxe2f.jpg")
-old3 = URI.open("https://res.cloudinary.com/dsas0wiz2/image/upload/v1671746691/old3_xh5vdp.webp")
-
-old_photos = [
-  { io: old1, filename: "car1.jpg", content_type: "image/jpg" },
-  { io: old2, filename: "car2.jpg", content_type: "image/jpg" },
-  { io: old3, filename: "car3.jpg", content_type: "image/jpg" }
-]
-
-car_old = Car.new(brand: "Volkswagen", model: "Loom", address: "100 Rue Henri Coste 13140 Miramas", year_of_production: 1972, price_per_day: 95, user_id: 6)
-car_old.photos.attach(old_photos)
-car_old.save!
 
 puts "Creating cars..."
 

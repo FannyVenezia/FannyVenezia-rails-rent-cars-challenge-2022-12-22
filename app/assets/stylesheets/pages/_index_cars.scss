@@ -2,15 +2,56 @@
   display: flex;
 }
 
+.form-search {
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-top: 40px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  margin-right: 20px;
+}
+
+.left-section-cards {
+  h4 {
+    margin-left: 20px;
+    margin-top: 30px;
+    color: white;
+  }
 }
 
 #right-section-cards {
   height: 100vh;
   position: sticky;
   top: 0;
+}
+
+.form-control-search {
+  width: 400px;
+}
+
+.info-card-car {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.card-car {
+  border-radius: 6px;
+  background-color: white;
+  a {
+    text-decoration: none;
+    color: rgb(134, 25, 134);
+    &:hover {
+      color: white;
+      background-color: rgb(134, 25, 134);
+      padding: 10px 14px;
+      border-radius: 20px;
+    }
+  }
 }

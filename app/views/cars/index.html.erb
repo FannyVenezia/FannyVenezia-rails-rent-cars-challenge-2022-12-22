@@ -3,7 +3,7 @@
     <%= form_with url: cars_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query, params[:query],
         class: "form-control-search",
-        placeholder: "Trouvez par marque"
+        placeholder: "Cherchez par marque"
       %>
       <%= submit_tag "Chercher", class: "btn btn-primary" %>
     <% end %>
@@ -11,8 +11,11 @@
     <div class="card-grid"  class="col-5 col-lg-8 flex-grow">
       <% @cars.each do |car| %>
         <div>
-          <%= cl_image_tag car.photos.first.key, height: 300, width: 285, crop: :fill %>
+          <%= cl_image_tag car.photos.first.key, height: 200, width: 285, crop: :fill %>
           <%= car.brand %>
+          <%= car.model %>
+          <%= car.year_of_production %>
+          <%= car.price_per_day %>
           <%= link_to "Details", car_path(car) %>
         </div>
       <% end %>

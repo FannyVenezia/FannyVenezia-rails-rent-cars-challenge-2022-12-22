@@ -18,6 +18,18 @@
   opacity: 2;
   margin-top: 60px;
   h2 {
-    color: black;
+    margin-bottom: 30px;
+  }
+}
+
+.btn-home {
+  color: white;
+  background-color: rgb(134, 25, 134);
+  padding: 12px 21px;
+  text-decoration: none;
+  border-radius: 20px;
+  &:hover {
+    color: rgb(134, 25, 134);
+    background-color: white;
   }
 }

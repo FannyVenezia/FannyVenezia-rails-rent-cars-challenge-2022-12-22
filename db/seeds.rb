@@ -138,7 +138,7 @@ blue_photos = [
   { io: blue3, filename: "car3.jpg", content_type: "image/jpg" }
 ]
 
-car_blue = Car.new(brand: "hyundai", model: "K22", address: "25 Rue des Fileuses de Soie 13300 Salon-De-Provence", year_of_production: 2005, price_per_day: 65, user_id: 6)
+car_blue = Car.new(brand: "hyundai", model: "K22", address: "2 Impasse des Lavances 30400 Villeneuve-lès-Avignon", year_of_production: 2005, price_per_day: 65, user_id: 6)
 car_blue.photos.attach(blue_photos)
 car_blue.save!
 

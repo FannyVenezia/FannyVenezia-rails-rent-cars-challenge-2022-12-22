@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :find_car_id, only: %i[create]
 
+  def index
+    @bookings = Booking.all
+  end
+
   def new
   end
 

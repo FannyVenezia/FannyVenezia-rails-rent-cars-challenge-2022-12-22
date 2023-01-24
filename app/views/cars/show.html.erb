@@ -18,7 +18,7 @@
 
     <div class="booking-card">
       <div class="booking-section">
-        <div class="booking-form-card">
+        <div class="white-card">
           <h4>Tentez la location entre particuliers pour vos prochaines vacances</h4>
           <% if user_signed_in? %>
             <p>Réserver cette voiture :</p>
@@ -38,20 +38,17 @@
   <div class="btn-purple-corner">
     <%= link_to "Revenir vers la liste des voitures", cars_path %>
   </div>
+
   <div>
-    <% @car.bookings.each do |booking| %>
-      <% if booking.user = current_user %>
-        <div class="booking-form-card small-card">
-          <h4>Récapitulatif de votre réservation</h4>
-          <p>Date de départ | <%= booking.starts_at %></p>
-          <p>Date de retour | <%= booking.ends_at %></p>
-          <% if booking.accepted == "true" %>
-            <p>Bonne nouvelle, votre réservation a été acceptée par <%= @car.user.first_name %> ! Préparez vos valises pour le <%= booking.starts_at %> !</p>
-          <% else %>
-            <p>Votre réservation est en attente d'acceptation par <%= @car.user.first_name %>...</p>
-          <% end %>
-        <% end %>
+    <div class="white-card small-card">
+      <% if @car.reviews.empty? %>
+        <small><em class="text-muted">Soyez le premier à laisser un avis !</em></small>
       <% end %>
-    </div>
+      <% @car.reviews.each do |review| %>
+        <% review.rating %>
+        <% review.comment %>
+        <p>Soyez le premier à réserver cette voiture et à laisser un avis !</p>
+      </div>
+    <% end %>
   </div>
 </div>

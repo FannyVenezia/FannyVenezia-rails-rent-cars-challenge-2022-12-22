@@ -1,8 +1,13 @@
 class BookingsController < ApplicationController
   before_action :find_car_id, only: %i[create]
+  before_action :set_booking, only: %i[show edit update destroy]
 
   def index
     @bookings = Booking.all
+  end
+
+  def show
+    @review = Review.new
   end
 
   def new
@@ -23,6 +28,10 @@ class BookingsController < ApplicationController
 
   def find_car_id
     @car = Car.find(params[:car_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params

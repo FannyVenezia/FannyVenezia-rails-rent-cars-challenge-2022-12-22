@@ -47,7 +47,7 @@ input[type=submit] {
   margin-top: 40px;
 }
 
-.booking-form-card {
+.white-card {
   border: 1px solid rgba(138, 137, 138, 0.651);
   background-color: white;
   padding: 30px;
@@ -57,5 +57,10 @@ input[type=submit] {
 
 .small-card {
   height: 224px;
+  margin-bottom: 30px;
+}
+
+.big-card {
+  height: 400px;
   margin-bottom: 30px;
 }

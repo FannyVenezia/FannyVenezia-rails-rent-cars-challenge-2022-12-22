@@ -12,7 +12,7 @@
       <p>Marque | <%= @car.brand.capitalize %></p>
       <p>Modèle | <%= @car.model %></p>
       <p>Année de mise en circulation | <%= @car.year_of_production %></p>
-      <p>Localisation | <%= @car.address %></p>
+      <p>Adresse | <%= @car.address %></p>
       <p class="margin-auto">Prix à la journée | <%= @car.price_per_day %>€</p>
     </div>
 
@@ -39,16 +39,39 @@
     <%= link_to "Revenir vers la liste des voitures", cars_path %>
   </div>
 
-  <div>
-    <div class="white-card small-card">
-      <% if @car.reviews.empty? %>
-        <small><em class="text-muted">Soyez le premier à laisser un avis !</em></small>
+  <div class="white-card small-card">
+    <h5><strong>Les avis sur cette voiture</strong></h5>
+    <% if @car.reviews.empty? %>
+      <small><em class="text-muted">Soyez le premier à laisser un avis !</em></small>
+    <% end %>
+    <% @car.reviews.each do |review| %>
+      <% if review.rating == 1 %>
+      <%= image_tag image_url("star.png") %>
+    <% elsif review.rating == 2 %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+    <% elsif review.rating == 3 %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+    <% elsif review.rating == 4 %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+    <% elsif review.rating == 4 %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+      <%= image_tag image_url("star.png") %>
+    <% end %>
+    <%= review.comment %>
+    <div>
+      <% if review.user = current_user %>
+        <%= link_to "delete", review_path(review), class: "btn-purple", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       <% end %>
-      <% @car.reviews.each do |review| %>
-        <% review.rating %>
-        <% review.comment %>
-        <p>Soyez le premier à réserver cette voiture et à laisser un avis !</p>
-      </div>
+    </div>
     <% end %>
   </div>
 </div>

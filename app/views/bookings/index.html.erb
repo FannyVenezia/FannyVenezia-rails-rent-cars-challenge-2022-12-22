@@ -1,16 +1,16 @@
-<div>
+<div class="white-card big-card">
   <% @bookings.each do |booking| %>
     <% if booking.user = current_user %>
-      <div class="booking-form-card small-card">
-        <h4>Récapitulatif de votre réservation</h4>
-        <p>Date de départ | <%= booking.starts_at %></p>
-        <p>Date de retour | <%= booking.ends_at %></p>
-        <% if booking.accepted == "true" %>
-          <p>Bonne nouvelle, votre réservation a été acceptée par <%= @car.user.first_name %> ! Préparez vos valises pour le <%= booking.starts_at %> !</p>
-        <% else %>
-          <p>Votre réservation est en attente d'acceptation par <%= @car.user.first_name %>...</p>
-        <% end %>
+      <h4>Récapitulatif de votre réservation</h4>
+      <p>Date de départ | <%= booking.starts_at %></p>
+      <p>Date de retour | <%= booking.ends_at %></p>
+      <% if booking.accepted == "true" %>
+        <p>Bonne nouvelle, votre réservation a été acceptée par <%= booking.car.user.first_name %> ! Préparez vos valises pour le <%= booking.starts_at %> !</p>
+      <% else %>
+        <p>Votre réservation est en attente d'acceptation par <%= booking.car.user.first_name %>...</p>
       <% end %>
+
+      <%= link_to "Voir plus", booking_path(booking), class: "btn-purple" %>
     <% end %>
-  </div>
+  <% end %>
 </div>

@@ -1,12 +1,9 @@
-.log-in-form {
-  margin-left: 40px;
-  padding: 18px 22px;
-  width: 50%;
-  border-radius: 6px;
-  background-color: white;
-  margin: auto;
-  a {
-    text-decoration: none;
-    color: black;
-  }
+.container-flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.tall-card {
+  height: 100%;
+  margin-bottom: 30px;
 }

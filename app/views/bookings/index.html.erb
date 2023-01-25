@@ -1,10 +1,13 @@
-<div class="white-card big-card">
-  <% @bookings.each do |booking| %>
-    <% if booking.user = current_user %>
-      <h4>Récapitulatif de votre réservation</h4>
-      <p>Date de départ | <%= booking.starts_at %></p>
-      <p>Date de retour | <%= booking.ends_at %></p>
-      <%= link_to "Voir plus", booking_path(booking), class: "btn-purple" %>
+<div class="container-flex-center">
+  <div class="white-card tall-card">
+    <h5>Vos réservations</h5>
+    <% @bookings.each do |booking| %>
+      <% if booking.user = current_user %>
+        <p><strong>Voiture réservée | <%= booking.car.brand %></strong> <%= link_to "(revoir)", car_path(booking.car), class: "btn-purple" %></p>
+        <p>Date de départ | <%= booking.starts_at %></p>
+        <p>Date de retour | <%= booking.ends_at %></p>
+        <%= link_to "Voir plus", booking_path(booking), class: "btn-purple" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

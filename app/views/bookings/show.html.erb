@@ -1,12 +1,29 @@
-<%= @booking.starts_at %>
-<%= @booking.car.brand %>
+<div class="container-flex">
+  <div class="white-card big-card">
+    <h4>Récapitulatif de votre réservation</h4>
+    <p>Date de départ | <%= @booking.starts_at %></p>
+    <p>Date de retour | <%= @booking.ends_at %></p>
 
-<div class="white-card big-card">
-  <p>Voulez-vous laisser un avis sur cette voiture pour les futurs utilisateurs ?</p>
-  <%= simple_form_for [@booking.car, @review] do |f| %>
-    <%= f.input :comment, label: "Commentaire" %>
-    <%= f.input :rating, collection: (1..5).to_a,
-    label: "Evaluez votre experience", input_html: {data: {controller: "star-rating"}} %>
-    <%= f.submit "Envoyer" %>
-  <% end %>
+    <h4>Informations sur la voiture</h4>
+    <p>Marque | <%= @booking.car.brand.capitalize %></p>
+    <p>Modèle | <%= @booking.car.model %></p>
+    <p>Adresse | <%= @booking.car.address %></p>
+    <p class="margin-auto">Prix à la journée | <%= @booking.car.price_per_day %>€</p>
+
+    <% if @booking.accepted == "true" %>
+      <p>Bonne nouvelle, votre réservation a été acceptée par <%= @booking.car.user.first_name %> ! Préparez vos valises pour le <%= @booking.starts_at %> !</p>
+    <% else %>
+      <p>Votre réservation est en attente d'acceptation par <%= @booking.car.user.first_name %>...</p>
+    <% end %>
+  </div>
+
+  <div class="white-card big-card">
+    <p>Voulez-vous laisser un avis sur cette voiture pour les futurs utilisateurs ?</p>
+    <%= simple_form_for [@booking.car, @review] do |f| %>
+      <%= f.input :comment, label: "Commentaire" %>
+      <%= f.input :rating, collection: (1..5).to_a,
+      label: "Evaluez votre experience", input_html: {data: {controller: "star-rating"}} %>
+      <%= f.submit "Envoyer" %>
+    <% end %>
+  </div>
 </div>

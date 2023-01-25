@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.car = @car
     @booking.user = current_user
     if @booking.save
-      redirect_to car_path(@car), notice: "Félicitations, votre réservation a bien été enregistrée !"
+      redirect_to booking_path(@booking), notice: "Félicitations, votre réservation a bien été enregistrée !"
     else
       render :new, status: :unprocessable_entity
     end

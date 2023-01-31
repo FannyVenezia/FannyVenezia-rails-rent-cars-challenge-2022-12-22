@@ -7,6 +7,9 @@ import { application } from "./application"
 import AddressAutocompleteController from "./address_autocomplete_controller.js"
 application.register("address-autocomplete", AddressAutocompleteController)
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller.js"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import FlatpickrController from "./flatpickr_controller.js"
 application.register("flatpickr", FlatpickrController)
 

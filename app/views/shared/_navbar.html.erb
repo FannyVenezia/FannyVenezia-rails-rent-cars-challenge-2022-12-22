@@ -1,6 +1,8 @@
 <div class="navbar">
-  <div class="logo-navbar">
-    <%= image_tag "icon-voiture.png" %>
+  <div>
+    <%= link_to cars_path, class: "logo-navbar" do %>
+      <%= image_tag "icon-voiture.png" %>
+    <% end %>
   </div>
 
   <div class="menu-navbar">

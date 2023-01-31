@@ -68,9 +68,7 @@
     <% end %>
     <%= review.comment %>
     <div>
-      <% if review.user = current_user %>
-        <%= link_to "delete", review_path(review), class: "btn-purple", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
+
     </div>
     <% end %>
   </div>

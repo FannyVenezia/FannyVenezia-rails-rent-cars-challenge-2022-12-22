@@ -143,3 +143,8 @@ car_blue.photos.attach(blue_photos)
 car_blue.save!
 
 puts "Cars created"
+
+
+//rappel par mail + accepter la réservation + système de paiment + système de notif interne
+//système de messagerie (websocket)
+// enzo1.scaduto@epitech.eu

@@ -1,0 +1,4 @@
+<h4>Les chatrooms</h4>
+<% @chatrooms.each do |chatroom| %>
+  <%= link_to "Canal", chatroom_path(chatroom), class: "btn-purple" %>
+<% end %>

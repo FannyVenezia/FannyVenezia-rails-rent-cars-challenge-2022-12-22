@@ -1,11 +1,51 @@
 <div class="container">
-  <div class="car-photos">
-    <% @car.photos.each do |photo| %>
-      <div class="car-photos-grid">
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="car-photos flip-card-front">
+        <% @car.photos.each do |photo| %>
+          <div class="car-photos-grid">
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+
+      <div class="white-card small-card flip-card-back">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h5><strong>Les avis sur cette voiture</strong></h5>
+            <% if @car.reviews.empty? %>
+              <small><em class="text-muted">Soyez le premier à laisser un avis !</em></small>
+            <% end %>
+            <% @car.reviews.each do |review| %>
+              <% if review.rating == 1 %>
+                <%= image_tag image_url("star.png") %>
+              <% elsif review.rating == 2 %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+              <% elsif review.rating == 3 %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+              <% elsif review.rating == 4 %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+              <% elsif review.rating == 5 %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+                <%= image_tag image_url("star.png") %>
+              <% end %>
+              <%= review.comment %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 
   <div class="body-booking">
     <div class="car-fiche-info">
@@ -46,27 +86,27 @@
     <% end %>
     <% @car.reviews.each do |review| %>
       <% if review.rating == 1 %>
-      <%= image_tag image_url("star.png") %>
-    <% elsif review.rating == 2 %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-    <% elsif review.rating == 3 %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-    <% elsif review.rating == 4 %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-    <% elsif review.rating == 5 %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-      <%= image_tag image_url("star.png") %>
-    <% end %>
-    <%= review.comment %>
+        <%= image_tag image_url("star.png") %>
+      <% elsif review.rating == 2 %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+      <% elsif review.rating == 3 %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+      <% elsif review.rating == 4 %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+      <% elsif review.rating == 5 %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+        <%= image_tag image_url("star.png") %>
+      <% end %>
+      <%= review.comment %>
     <div>
 
     </div>

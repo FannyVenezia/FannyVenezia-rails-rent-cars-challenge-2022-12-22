@@ -13,6 +13,9 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import FlatpickrController from "./flatpickr_controller.js"
 application.register("flatpickr", FlatpickrController)
 
+import FlipCardsController from "./flip_cards_controller.js"
+application.register("flip-cards", FlipCardsController)
+
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 

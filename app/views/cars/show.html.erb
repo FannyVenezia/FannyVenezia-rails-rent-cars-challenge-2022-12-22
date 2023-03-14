@@ -1,52 +1,11 @@
 <div class="container">
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="car-photos flip-card-front">
-        <% @car.photos.each do |photo| %>
-          <div class="car-photos-grid">
-            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-          </div>
-        <% end %>
+  <div class="car-photos">
+    <% @car.photos.each do |photo| %>
+      <div class="car-photos-grid">
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       </div>
-
-      <div class="white-card small-card flip-card-back">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <h5><strong>Les avis sur cette voiture</strong></h5>
-            <% if @car.reviews.empty? %>
-              <small><em class="text-muted">Soyez le premier à laisser un avis !</em></small>
-            <% end %>
-            <% @car.reviews.each do |review| %>
-              <% if review.rating == 1 %>
-                <%= image_tag image_url("star.png") %>
-              <% elsif review.rating == 2 %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-              <% elsif review.rating == 3 %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-              <% elsif review.rating == 4 %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-              <% elsif review.rating == 5 %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-                <%= image_tag image_url("star.png") %>
-              <% end %>
-              <%= review.comment %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
-
-
   <div class="body-booking">
     <div class="car-fiche-info">
       <p>Marque | <%= @car.brand.capitalize %></p>
@@ -55,7 +14,6 @@
       <p>Adresse | <%= @car.address %></p>
       <p class="margin-auto">Prix à la journée | <%= @car.price_per_day %>€</p>
     </div>
-
     <div class="booking-card">
       <div class="booking-section">
         <div class="white-card">
@@ -74,7 +32,6 @@
       </div>
     </div>
   </div>
-
   <div class="btn-purple-corner">
     <%= link_to "Revenir vers la liste des voitures", cars_path %>
   </div>
